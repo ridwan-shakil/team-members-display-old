@@ -1,0 +1,97 @@
+/*  admin settings page css  */
+.wrap {
+    margin: 30px 20px 0 2px;
+}
+
+.style-settings-wrapper {
+    display: flex;
+}
+
+.settings-column {
+    width: 30%;
+    border: 1px solid gray;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.settings-display-column {
+    width: 50%;
+    padding: 40px;
+    background: #dcdcde;
+}
+
+a.nav-tab {
+    width: 80px;
+    text-align: center;
+}
+
+div#all-tabs {
+    padding: 10px;
+}
+
+.form-table th {
+    font-size: 16px;
+}
+
+/* content section css  */
+input[type="number"] {
+    width: 95px;
+}
+
+/* style section css */
+input[type="color"] {
+    height: 40px;
+    width: 40px;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="color"]:active {
+    border: none;
+}
+
+
+img.colorpick-eyedropper-input-trigger {
+    margin-left: 40px;
+}
+
+.wp-picker-container.wp-picker-active {
+    position: absolute;
+    margin-top: -20px;
+}
+
+/* custom css section css  */
+.form-table:nth-of-type(3) tr {
+    /* background: red; */
+    display: flex;
+    flex-direction: column;
+}
+
+table:nth-of-type(3) td {
+    padding: 0px;
+}
+
+textarea#custom_css_area {
+    width: 100%;
+
+    padding: 10px 5px 5px 15px;
+    background: #dcdcde;
+    border: 5px 10px solid gray;
+    border-top: 5px solid #5c5c5c;
+    border-left: 18px solid #888888;
+}
+
+/* notice  */
+.tms_notice {
+    margin: 40px;
+    padding: 10px 10px 10px 20px;
+    border-left: 9px solid green;
+    background: #697b6978;
+    width: 82%;
+}
+
+.tms_notice p {
+    font-size: 18px;
+}
+
+/* do not write display part css here , css for this is being enqued from public css, because it has to be same as frontend */
