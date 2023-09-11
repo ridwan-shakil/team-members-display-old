@@ -46,29 +46,6 @@ if (!defined('TEAM_PLUGIN_URL')) {
 }
 
 /**
- * The code that runs during plugin activation.
- * This action is documented in includes/class-team-members-showcase-activator.php
- */
-function activate_team_members_showcase() {
-	require_once plugin_dir_path(__FILE__) . 'includes/class-team-members-showcase-activator.php';
-	// Team_Members_Showcase_Activator::activate();
-	new Team_Members_Showcase_Activator();
-	// $activate->activate();
-}
-
-/**
- * The code that runs during plugin deactivation.
- * This action is documented in includes/class-team-members-showcase-deactivator.php
- */
-function deactivate_team_members_showcase() {
-	require_once plugin_dir_path(__FILE__) . 'includes/class-team-members-showcase-deactivator.php';
-	Team_Members_Showcase_Deactivator::deactivate();
-}
-
-register_activation_hook(__FILE__, 'activate_team_members_showcase');
-register_deactivation_hook(__FILE__, 'deactivate_team_members_showcase');
-
-/**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */

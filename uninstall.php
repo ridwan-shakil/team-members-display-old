@@ -29,10 +29,32 @@
 if (!defined('WP_UNINSTALL_PLUGIN')) {
 	exit;
 }
-
+// ==================
 // Clear database 
-$teams = get_posts(array('post_type' => 'team_member_showcase', 'numberposts' => -1));
+// ==================
+// Deleteing CPT ( posts, post_meta , tags , comments )
+$teams = get_posts(array(
+	'post_type' => 'team_member_showcase',
+	'numberposts' => -1,
+	'post_status' => array('publish', 'draft', 'auto-draft', 'trash'),
+));
 
 foreach ($teams as $team) {
 	wp_delete_post($team->ID, true);
 }
+
+// Deleting settings options 
+delete_option('tms_columns');
+delete_option('tms_member_box_shadow');
+delete_option('tms_member_image_height');
+delete_option('tms_name_font_size');
+delete_option('tms_designation_font_size');
+delete_option('tms_description_font_size');
+delete_option('tms_social_profile_icon_size');
+delete_option('tms_member_box_background_color');
+delete_option('tms_member_name_color');
+delete_option('tms_member_designation_color');
+delete_option('tms_member_description_color');
+delete_option('tms_social_icon_color');
+delete_option('tms_social_background_color');
+delete_option('custom_css');

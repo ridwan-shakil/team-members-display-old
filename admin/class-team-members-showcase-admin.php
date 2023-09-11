@@ -239,12 +239,12 @@ class Team_Members_Showcase_Admin {
 	// ==============================
 	function team_m_showcase_submenu_page() {
 		add_submenu_page(
-			'edit.php?post_type=team_member_showcase', // Parent menu slug (CPT)
-			'Team Member Showcase Settings',           // Page title
-			'Settings',                               // Menu title
-			'manage_options',                         // Required capability
-			'team-member-showcase-settings',          // Menu slug
-			array($this, 'team_member_showcase_settings_page')      // Callback function to display the page content
+			'edit.php?post_type=team_member_showcase',
+			__('Team Member Showcase Settings', 'team-members-showcase'),
+			__('Settings', 'team-members-showcase'),
+			'manage_options',
+			'team-member-showcase-settings',
+			array($this, 'team_member_showcase_settings_page')
 		);
 	}
 	function team_member_showcase_settings_page() {
