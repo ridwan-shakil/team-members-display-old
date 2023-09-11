@@ -26,6 +26,13 @@
  */
 
 // If uninstall not called from WordPress, then exit.
-if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+if (!defined('WP_UNINSTALL_PLUGIN')) {
 	exit;
+}
+
+// Clear database 
+$teams = get_posts(array('post_type' => 'team_member_showcase', 'numberposts' => -1));
+
+foreach ($teams as $team) {
+	wp_delete_post($team->ID, true);
 }

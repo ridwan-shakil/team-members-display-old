@@ -34,13 +34,13 @@ $social_icons = array(
     <!-- Member description -->
     <div class="description-area member-input">
         <span class="mb_label"><?php _e('Member Name', "tmshowcase"); ?></span>
-        <input type="text" name="mb_name[]" value="" placeholder="Enter Member Name Here" class="rs_label_text" required>
+        <input type="text" name="mb_name[]" value="" class="rs_label_text" required>
 
         <span class="mb_label"><?php _e('Member Designation', "tmshowcase"); ?></span>
-        <input type="text" name="mb_pos[]" value="" placeholder="Enter Member Designation Here" class="rs_label_text" required>
+        <input type="text" name="mb_pos[]" value="" class="rs_label_text" required>
 
         <span class="mb_label"><?php _e('Member Small Description', "tmshowcase"); ?></span>
-        <textarea name="mb_desc[]" placeholder="Enter Member Small Description Here" class="rs_label_text" required></textarea>
+        <textarea name="mb_desc[]" class="rs_label_text" required></textarea>
     </div>
     <!-- Social accounts -->
     <div class="socials-area member-input">
@@ -57,7 +57,7 @@ $social_icons = array(
                         }
                         ?>
                     </select>
-                    <input type="text" name="first_social_link[]" value="" placeholder="Social Link">
+                    <input type="text" name="first_social_link[]" value="" placeholder=" <?php _e('Social Link', 'team-members-showcase'); ?>">
                 </div>
                 <!-- second social  -->
                 <div class="social-row">
@@ -69,7 +69,7 @@ $social_icons = array(
                         }
                         ?>
                     </select>
-                    <input type="text" name="second_social_link[]" value="" placeholder="Social Link">
+                    <input type="text" name="second_social_link[]" value="" placeholder=" <?php _e('Social Link', 'team-members-showcase'); ?>">
                 </div>
                 <!-- third social  -->
                 <div class="social-row">
@@ -81,7 +81,7 @@ $social_icons = array(
                         }
                         ?>
                     </select>
-                    <input type="text" name="third_social_link[]" value="" placeholder="Social Link">
+                    <input type="text" name="third_social_link[]" value="" placeholder=" <?php _e('Social Link', 'team-members-showcase'); ?>">
                 </div>
                 <!-- fourth social  -->
                 <div class="social-row">
@@ -93,7 +93,7 @@ $social_icons = array(
                         }
                         ?>
                     </select>
-                    <input type="text" name="fourth_social_link[]" value="" placeholder="Social Link">
+                    <input type="text" name="fourth_social_link[]" value="" placeholder=" <?php _e('Social Link', 'team-members-showcase'); ?>">
                 </div>
 
             </div>

@@ -71,10 +71,14 @@ class Team_Members_Showcase_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
+
 		//CSS for team members  CPT only
-		if ('post-new.php' == $screen && 'team_member_showcase' == get_current_screen()->post_type) {
-			wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/team-members-showcase-admin.css', array(), $this->version, 'all');
+		global $post;
+		if ('post-new.php' == $screen || 'post.php' == $screen) {
+			if ('team_member_showcase' === $post->post_type)
+				wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/team-members-showcase-admin.css', array(), $this->version, 'all');
 		}
+
 		// CSS only for our settings page 
 		if ('team_member_showcase_page_team-member-showcase-settings' == $screen) {
 			wp_enqueue_style('wp-color-picker');
@@ -121,7 +125,7 @@ class Team_Members_Showcase_Admin {
 		// for sttings page only
 		if ('team_member_showcase_page_team-member-showcase-settings' == $screen) {
 			wp_enqueue_script('wp-color-picker');
-			wp_enqueue_script('tm-settings-admin-js', plugin_dir_url(__FILE__) . 'js/settings-admin.js', array('jquery'), time(), false);  // Change the version
+			wp_enqueue_script('tm-settings-admin-js', plugin_dir_url(__FILE__) . 'js/settings-admin.js', array('jquery'), $this->version, false);  // Change the version
 		}
 	}
 

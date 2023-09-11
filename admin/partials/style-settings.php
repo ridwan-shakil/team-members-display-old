@@ -11,9 +11,9 @@ require_once(TEAM_PLUGIN_DIR_PATH . 'public/partials/settings-css.php');
 <div class=" style-settings-wrapper">
     <div class="settings-column">
         <h1 class="nav-tab-wrapper">
-            <a href=" #" id="content-tab" class="nav-tab">Content</a>
-            <a href=" #" id="style-tab" class="nav-tab">Style</a>
-            <a href=" #" id="advanced-tab" class="nav-tab">Custom CSS</a>
+            <a href=" #" id="content-tab" class="nav-tab"><?php _e('Content', 'team-members-showcase'); ?></a>
+            <a href=" #" id="style-tab" class="nav-tab"><?php _e('Style', 'team-members-showcase'); ?></a>
+            <a href=" #" id="advanced-tab" class="nav-tab"><?php _e('Custom CSS', 'team-members-showcase'); ?></a>
         </h1>
         <div class=" tab-content" id="all-tabs">
             <!-- tab content goes here -->

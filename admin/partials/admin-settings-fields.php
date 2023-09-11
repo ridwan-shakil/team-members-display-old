@@ -12,49 +12,49 @@ add_settings_section(
 
 add_settings_field(
     'tms_columns',
-    'Columns',
+    __('Columns', 'team-members-showcase'),
     'columns_field_callback',
     'team-member-showcase-settings',
     'team_member_showcase_content_section'
 );
 add_settings_field(
     'tms_member_box_shadow',
-    'Show Member Box Shadow',
+    __('Show Member Box Shadow', 'team-members-showcase'),
     'tms_member_box_shadow_field_callback',
     'team-member-showcase-settings',
     'team_member_showcase_content_section'
 );
 add_settings_field(
     'tms_member_image_height',
-    'Member Image Height',
+    __('Member Image Height', 'team-members-showcase'),
     'member_image_height_field_callback',
     'team-member-showcase-settings',
     'team_member_showcase_content_section'
 );
 add_settings_field(
     'tms_name_font_size',
-    'Name Font Size',
+    __('Name Font Size', 'team-members-showcase'),
     'name_font_size_field_callback',
     'team-member-showcase-settings',
     'team_member_showcase_content_section'
 );
 add_settings_field(
     'tms_designation_font_size',
-    'Designation Font Size',
+    __('Designation Font Size', 'team-members-showcase'),
     'designation_font_size_field_callback',
     'team-member-showcase-settings',
     'team_member_showcase_content_section'
 );
 add_settings_field(
     'tms_description_font_size',
-    'Description Font Size',
+    __('Description Font Size', 'team-members-showcase'),
     'description_font_size_field_callback',
     'team-member-showcase-settings',
     'team_member_showcase_content_section'
 );
 add_settings_field(
     'tms_social_profile_icon_size',
-    'Social Profile Icon Size        ',
+    __('Social Profile Icon Size', 'team-members-showcase'),
     'social_profile_icon_size_field_callback',
     'team-member-showcase-settings',
     'team_member_showcase_content_section'
@@ -73,14 +73,14 @@ register_setting('team-member-showcase-settings', 'tms_social_profile_icon_size'
 // ============================
 add_settings_section(
     'team_member_showcase_style_section',
-    'Style settings',
+    __('Style settings', 'team-members-showcase'),
     '',
     'team-member-showcase-settings'
 );
 
 add_settings_field(
     'tms_member_box_background_color',
-    'Member Box Background Color',
+    __('Member Box Background Color', 'team-members-showcase'),
     'member_box_background_color_field_callback',
     'team-member-showcase-settings',
     'team_member_showcase_style_section'
@@ -88,7 +88,7 @@ add_settings_field(
 
 add_settings_field(
     'tms_member_name_color',
-    'Name Color',
+    __('Name Color', 'team-members-showcase'),
     'member_name_color_field_callback',
     'team-member-showcase-settings',
     'team_member_showcase_style_section'
@@ -96,7 +96,7 @@ add_settings_field(
 
 add_settings_field(
     'tms_member_designation_color',
-    'Designation Color',
+    __('Designation Color', 'team-members-showcase'),
     'member_designation_color_field_callback',
     'team-member-showcase-settings',
     'team_member_showcase_style_section'
@@ -104,7 +104,7 @@ add_settings_field(
 
 add_settings_field(
     'tms_member_description_color',
-    'Description Color',
+    __('Description Color', 'team-members-showcase'),
     'member_description_color_field_callback',
     'team-member-showcase-settings',
     'team_member_showcase_style_section'
@@ -112,7 +112,7 @@ add_settings_field(
 
 add_settings_field(
     'tms_social_icon_color',
-    'Social Profile Icon Color',
+    __('Social Profile Icon Color', 'team-members-showcase'),
     'social_icon_color_field_callback',
     'team-member-showcase-settings',
     'team_member_showcase_style_section'
@@ -120,7 +120,7 @@ add_settings_field(
 
 add_settings_field(
     'tms_social_background_color',
-    'Social Profile Background Color',
+    __('Social Profile Background Color', 'team-members-showcase'),
     'social_background_color_field_callback',
     'team-member-showcase-settings',
     'team_member_showcase_style_section'
@@ -138,14 +138,14 @@ register_setting('team-member-showcase-settings', 'tms_social_background_color')
 // =========================
 add_settings_section(
     'team_member_showcase_custom_css_section',
-    '',
+    __('Custom css ettings', 'team-members-showcase'),
     '',
     'team-member-showcase-settings'
 );
 
 add_settings_field(
     'custom_css',
-    'Custom CSS',
+    __('Custom CSS', 'team-members-showcase'),
     'custom_css_field_callback',
     'team-member-showcase-settings',
     'team_member_showcase_custom_css_section'
@@ -164,10 +164,10 @@ function columns_field_callback() {
     $selected_columns = get_option('tms_columns', '30%'); // Default value is 3
 ?>
     <select name="tms_columns" id="tms-columns-select">
-        <option value="40%" <?php selected($selected_columns, '40%'); ?>>2 Columns</option>
-        <option value="30%" <?php selected($selected_columns, '30%'); ?>>3 Columns</option>
-        <option value="20%" <?php selected($selected_columns, '20%'); ?>>4 Columns</option>
-        <option value="15%" <?php selected($selected_columns, '15%'); ?>>5 Columns</option>
+        <option value="40%" <?php selected($selected_columns, '40%'); ?>><?php _e('2 Columns', 'team-members-showcase'); ?> </option>
+        <option value="30%" <?php selected($selected_columns, '30%'); ?>><?php _e('3 Columns', 'team-members-showcase'); ?></option>
+        <option value="20%" <?php selected($selected_columns, '20%'); ?>><?php _e('4 Columns', 'team-members-showcase'); ?></option>
+        <option value="15%" <?php selected($selected_columns, '15%'); ?>><?php _e('5 Columns', 'team-members-showcase'); ?></option>
     </select>
 <?php
 }

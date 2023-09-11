@@ -51,10 +51,3 @@ $icon_size = 16 + $input;
         line-height: <?php echo $icon_size . 'px'; ?>;
     }
 </style>
-<?php // Users custom css from settings page
-// $custom_css = get_option('custom_css');
-// if (!empty($custom_css)) {
-//     wp_add_inline_style('team_member_public_css', $custom_css);
-// }
-// 
-?>

@@ -14,7 +14,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Team members showcase
- * Plugin URI:        https://#
+ * Plugin URI:        https://#  
  * Description:       This plugin adds a Team member CPT that allows you to create teams and add members to those teams. This plugin also adds a settings section where you can customize team members' designs in the front end.
  * Version:           1.0.0
  * Author:            MD.Ridwan
