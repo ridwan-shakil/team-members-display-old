@@ -54,8 +54,8 @@
 
 
 		// deleting a member 
-		$(document).on('click', '.delete-current-member', function () {
-			var teamMember = $(this).parent('.single-team-member');
+		$(document).on('click', '.delete_single', function () {
+			var teamMember = $(this).parents('.single-team-member');
 			if (confirm('Are you sure you want to delete this team member')) {
 				teamMember.animate({ height: '0px' }, function () {
 					teamMember.remove();

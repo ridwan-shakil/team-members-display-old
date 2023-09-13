@@ -110,9 +110,13 @@ class Team_Members_Showcase_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-		if ('post-new.php' == $screen && 'team_member_showcase' == get_current_screen()->post_type) {
 
-			wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/team-members-showcase-admin.js', array('jquery'), $this->version, false);
+		//JS for team members  CPT only
+		global $post;
+		if ('post-new.php' == $screen || 'post.php' == $screen) {
+			if ('team_member_showcase' === $post->post_type)
+
+				wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/team-members-showcase-admin.js', array('jquery'), $this->version, false);
 			wp_localize_script(
 				$this->plugin_name,  // this name must be same as enqued script name
 				'add_new_member_obj', // this has to be unique for every request
@@ -122,6 +126,7 @@ class Team_Members_Showcase_Admin {
 			);
 			wp_enqueue_media();
 		}
+
 		// for sttings page only
 		if ('team_member_showcase_page_team-member-showcase-settings' == $screen) {
 			wp_enqueue_script('wp-color-picker');

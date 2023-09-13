@@ -46,8 +46,10 @@ $icon_size = 16 + $input;
     .social-links a.tm-s-social i {
         background: <?php echo get_option('tms_social_background_color'); ?>;
         font-size: <?php echo get_option('tms_social_profile_icon_size') . 'px'; ?>;
-        width: <?php echo $icon_size . 'px'; ?>;
-        height: <?php echo $icon_size . 'px'; ?>;
-        line-height: <?php echo $icon_size . 'px'; ?>;
+        <?php if ($icon_size) {
+            echo "width: <?php echo $icon_size . 'px'; ?>;
+                  height: <?php echo $icon_size . 'px'; ?>;
+                  line-height: <?php echo $icon_size . 'px'; ?>;";
+        } ?>
     }
 </style>

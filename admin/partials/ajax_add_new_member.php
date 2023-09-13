@@ -8,19 +8,17 @@ $social_icons = array(
     'fa fa-linkedin' => 'LinkedIn',
     'fa fa-pinterest' => 'Pinterest',
     'fa fa-youtube' => 'YouTube',
-    // 'fa fa-vimeo' => 'Vimeo',
     'fa fa-tumblr' => 'Tumblr',
     'fa fa-flickr' => 'Flickr',
     'fa fa-github' => 'GitHub',
-    'fa fa-bitbucket' => 'Bitbucket',
     'fa fa-gitlab' => 'GitLab',
+    'fa fa-bitbucket' => 'Bitbucket',
     'fa fa-behance' => 'Behance',
     'fa fa-dribbble' => 'Dribbble',
     'fa fa-skype' => 'Skype',
     'fa fa-whatsapp' => 'WhatsApp',
     'fa fa-telegram' => 'Telegram',
     'fa fa-slack' => 'Slack',
-    'fa fa-tiktok' => 'TikTok'
 );
 ?>
 <li class="single-team-member">

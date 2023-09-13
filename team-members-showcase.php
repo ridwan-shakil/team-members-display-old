@@ -1,12 +1,6 @@
 <?php
 
 /**
- * The plugin bootstrap file
- *
- * This file is read by WordPress to generate the plugin information in the plugin
- * admin area. This file also includes all of the dependencies used by the plugin,
- * registers the activation and deactivation functions, and defines a function
- * that starts the plugin.
  *
  * @link              https://github.com/ridwan-shakil
  * @since             1.0.0
@@ -14,8 +8,8 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Team members showcase
- * Plugin URI:        https://#  
- * Description:       This plugin adds a Team member CPT that allows you to create teams and add members to those teams. This plugin also adds a settings section where you can customize team members' designs in the front end.
+ * Plugin URI:        https://#
+ * Description:       This plugin adds a Team member CPT that allows you to create teams and add members to those teams. This plugin also adds a settings section where you can customize team members' design.
  * Version:           1.0.0
  * Author:            MD.Ridwan
  * Author URI:        https://github.com/ridwan-shakil
@@ -32,7 +26,7 @@ if (!defined('WPINC')) {
 
 /**
  * Currently plugin version.
- * Start at version 1.0.0 and use SemVer - https://semver.org
+ * Start at version 1.0.0 
  * Rename this for your plugin and update it as you release new versions.
  */
 define('TEAM_MEMBERS_SHOWCASE_VERSION', '1.0.0');

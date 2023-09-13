@@ -11,10 +11,10 @@
  * @package    Team_Members_Showcase
  * @subpackage Team_Members_Showcase/public/partials
  */
-?>
 
-<!-- This file should primarily consist of HTML with a little bit of PHP. -->
-<?php
+
+//   This file should primarily consist of HTML with a little bit of PHP.  
+
 if (!defined('ABSPATH')) exit;
 
 add_shortcode('TEAM_MEMBERS', function ($atts) {

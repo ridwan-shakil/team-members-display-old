@@ -77,6 +77,8 @@ class Team_Members_Showcase_Public {
 		if (is_a($post, 'WP_Post') && has_shortcode($post->post_content, 'TEAM_MEMBERS')) {
 
 			wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/team-members-showcase-public.css', array(), $this->version, 'all');
+			wp_enqueue_style('fontawesome4', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
 			// Users custom css from settings page
 			$custom_css = get_option('custom_css');
 			if (!empty($custom_css)) {
