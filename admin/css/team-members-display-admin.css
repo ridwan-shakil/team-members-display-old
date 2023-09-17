@@ -1,0 +1,181 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+/* team toolbar  */
+.tm-s-toolbar {
+	padding: 20px 0px;
+	position: relative;
+}
+
+a.tm-s-button {
+	padding: 6px 30px;
+	text-decoration: none;
+	font-size: 16px;
+	border: 1px solid gray;
+	margin: 0px 5px 0px 0px;
+	text-align: center;
+	/* color: white; */
+}
+
+a.tm-s-button.tm-s-show-preview-team {
+	position: absolute;
+	right: 0px;
+	padding: 10px 39px;
+	background: rgb(44 118 177);
+	border: none;
+	cursor: pointer;
+}
+
+/* all team members  */
+
+h2.team-members-heading {
+	font-size: 25px !important;
+}
+
+ul#all-team-members {
+	padding: 10px;
+}
+
+li.single-team-member {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 10px;
+	border-bottom: 1px solid #bcbcbc;
+}
+
+/* image section  */
+button.select-image-button {
+	/* width: 50%; */
+	padding: 10px;
+	background: rgb(44 118 177);
+	border: none;
+	cursor: pointer;
+	color: white;
+}
+
+.image-area {
+	width: 17%;
+}
+
+.image-area img {
+	height: 200px;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+
+/* description area  */
+.description-area {
+	width: 35%;
+}
+
+.member-input {
+	display: flex;
+	flex-direction: column;
+
+}
+
+.member-input input {
+	margin: 5px 0px;
+}
+
+textarea.rs_label_text {
+	min-height: 112px;
+}
+
+
+/* social rows  */
+.socials-area {
+	width: 35%;
+}
+
+.social-row {
+	margin: 10px 0px;
+}
+
+.social-row input {
+	width: 65%;
+}
+
+.add-social-row {
+	cursor: pointer;
+	padding: 8px;
+	background: rgb(44 118 177);
+	width: 120px;
+}
+
+.delete-current-member {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	margin-bottom: 0px;
+	position: relative;
+}
+
+span.dashicons.delete_single {
+	font-size: 35px;
+	padding: 10px;
+	cursor: pointer;
+	margin-bottom: 30px;
+	bottom: 0px;
+	right: 0px;
+}
+
+/* Controller section  */
+.controler-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 30px 0px;
+}
+
+.add-member.controler {
+	margin-top: 15px;
+}
+
+a#add-new-member {
+	text-decoration: none;
+	color: white;
+	background: rgb(44 118 177);
+	padding: 17px 103px;
+	font-size: 25px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	border: 0px;
+	cursor: pointer;
+}
+
+.delete-all-members.controler {
+	background: rgb(44 118 177);
+	padding: 15px 50px;
+	cursor: pointer;
+}
+
+span.dashicons.dashicons-trash.Delete-all {
+	padding: 8px 0px;
+}
+
+a.all-delete-btn {
+	text-decoration: none;
+	color: white;
+	font-size: 25px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+
+.tm-display-short-code.controler input {
+	height: 50px;
+	width: 350px;
+}
+
+.tm-display-short-code.controler {
+	margin: 30px 0px;
+}
+
+.tm-display-short-code.controler span {
+	font-size: 22px;
+	padding-right: 20px;
+}

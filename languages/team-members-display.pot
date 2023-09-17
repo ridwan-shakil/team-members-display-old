@@ -23,116 +23,116 @@ msgstr ""
 "X-Generator: Poedit 3.3.2\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/class-team-members-showcase-admin.php:135
+#: admin/class-team-members-display-admin.php:135
 msgctxt "Post Type General Name"
 msgid "All Teams"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:136
+#: admin/class-team-members-display-admin.php:136
 msgctxt "Post Type Singular Name"
 msgid "Team"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:137
-msgid "Team member showcase"
+#: admin/class-team-members-display-admin.php:137
+msgid "Team member display"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:138
-#: admin/class-team-members-showcase-admin.php:142
+#: admin/class-team-members-display-admin.php:138
+#: admin/class-team-members-display-admin.php:142
 msgid "All Teams"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:139
+#: admin/class-team-members-display-admin.php:139
 msgid "Team Archives"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:140
+#: admin/class-team-members-display-admin.php:140
 msgid "Item Attributes"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:141
+#: admin/class-team-members-display-admin.php:141
 msgid "Parent Team:"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:143
-#: admin/class-team-members-showcase-admin.php:144
+#: admin/class-team-members-display-admin.php:143
+#: admin/class-team-members-display-admin.php:144
 msgid "Add New Team"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:145
+#: admin/class-team-members-display-admin.php:145
 msgid "New Team"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:146
+#: admin/class-team-members-display-admin.php:146
 msgid "Edit Team"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:147
+#: admin/class-team-members-display-admin.php:147
 msgid "Update Team"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:148
-#: admin/class-team-members-showcase-admin.php:149
+#: admin/class-team-members-display-admin.php:148
+#: admin/class-team-members-display-admin.php:149
 msgid "View Team"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:150
+#: admin/class-team-members-display-admin.php:150
 msgid "Search Team"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:151
+#: admin/class-team-members-display-admin.php:151
 msgid "Not found"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:152
+#: admin/class-team-members-display-admin.php:152
 msgid "Not found in Trash"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:153
+#: admin/class-team-members-display-admin.php:153
 msgid "Insert into Team"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:154
+#: admin/class-team-members-display-admin.php:154
 msgid "Uploaded to this item"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:155
+#: admin/class-team-members-display-admin.php:155
 msgid "Teams list"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:156
+#: admin/class-team-members-display-admin.php:156
 msgid "Teams list navigation"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:157
+#: admin/class-team-members-display-admin.php:157
 msgid "Filter Teams list"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:160
+#: admin/class-team-members-display-admin.php:160
 msgid "Team member"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:161
+#: admin/class-team-members-display-admin.php:161
 msgid "Post Type Description"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:185
+#: admin/class-team-members-display-admin.php:185
 msgid "Teams"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:186
+#: admin/class-team-members-display-admin.php:186
 msgid "Total Members"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:187
+#: admin/class-team-members-display-admin.php:187
 msgid "Teams Shortcode"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:188
+#: admin/class-team-members-display-admin.php:188
 msgid "Date"
 msgstr ""
 
-#: admin/class-team-members-showcase-admin.php:214
+#: admin/class-team-members-display-admin.php:214
 msgid "Team Section"
 msgstr ""
 

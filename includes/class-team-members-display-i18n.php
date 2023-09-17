@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Define the internationalization functionality
  *
@@ -9,8 +8,8 @@
  * @link       https://github.com/ridwan-shakil
  * @since      1.0.0
  *
- * @package    Team_Members_Showcase
- * @subpackage Team_Members_Showcase/includes
+ * @package    Team_Members_Display
+ * @subpackage Team_Members_Display/includes
  */
 
 /**
@@ -20,11 +19,11 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Team_Members_Showcase
- * @subpackage Team_Members_Showcase/includes
+ * @package    Team_Members_Display
+ * @subpackage Team_Members_Display/includes
  * @author     MD.Ridwan <ridwansweb@gmail.com>
  */
-class Team_Members_Showcase_i18n {
+class Team_Members_Display_i18n {
 
 
 	/**
@@ -35,13 +34,9 @@ class Team_Members_Showcase_i18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'team-members-showcase',
+			'team-members-display',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);
-
 	}
-
-
-
 }

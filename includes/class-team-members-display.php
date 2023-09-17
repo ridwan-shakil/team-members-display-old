@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The file that defines the core plugin class
  *
@@ -9,8 +8,8 @@
  * @link       https://github.com/ridwan-shakil
  * @since      1.0.0
  *
- * @package    Team_Members_Showcase
- * @subpackage Team_Members_Showcase/includes
+ * @package    Team_Members_Display
+ * @subpackage Team_Members_Display/includes
  */
 
 /**
@@ -23,11 +22,11 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Team_Members_Showcase
- * @subpackage Team_Members_Showcase/includes
+ * @package    Team_Members_Display
+ * @subpackage Team_Members_Display/includes
  * @author     MD.Ridwan <ridwansweb@gmail.com>
  */
-class Team_Members_Showcase {
+class Team_Members_Display {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -35,7 +34,7 @@ class Team_Members_Showcase {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Team_Members_Showcase_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Team_Members_Display_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -67,12 +66,12 @@ class Team_Members_Showcase {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if (defined('TEAM_MEMBERS_SHOWCASE_VERSION')) {
-			$this->version = TEAM_MEMBERS_SHOWCASE_VERSION;
+		if ( defined( 'TEAM_MEMBERS_DISPLAY_VERSION' ) ) {
+			$this->version = TEAM_MEMBERS_DISPLAY_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->plugin_name = 'team-members-showcase';
+		$this->plugin_name = 'team-members-display';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -85,10 +84,10 @@ class Team_Members_Showcase {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Team_Members_Showcase_Loader. Orchestrates the hooks of the plugin.
-	 * - Team_Members_Showcase_i18n. Defines internationalization functionality.
-	 * - Team_Members_Showcase_Admin. Defines all hooks for the admin area.
-	 * - Team_Members_Showcase_Public. Defines all hooks for the public side of the site.
+	 * - Team_Members_Display_Loader. Orchestrates the hooks of the plugin.
+	 * - Team_Members_Display_i18n. Defines internationalization functionality.
+	 * - Team_Members_Display_Admin. Defines all hooks for the admin area.
+	 * - Team_Members_Display_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -102,32 +101,32 @@ class Team_Members_Showcase {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-team-members-showcase-loader.php';
+		require_once plugin_dir_path( __DIR__ ) . 'includes/class-team-members-display-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-team-members-showcase-i18n.php';
+		require_once plugin_dir_path( __DIR__ ) . 'includes/class-team-members-display-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-team-members-showcase-admin.php';
+		require_once plugin_dir_path( __DIR__ ) . 'admin/class-team-members-display-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-team-members-showcase-public.php';
+		require_once plugin_dir_path( __DIR__ ) . 'public/class-team-members-display-public.php';
 
-		$this->loader = new Team_Members_Showcase_Loader();
+		$this->loader = new Team_Members_Display_Loader();
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Team_Members_Showcase_i18n class in order to set the domain and to register the hook
+	 * Uses the Team_Members_Display_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -135,9 +134,9 @@ class Team_Members_Showcase {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Team_Members_Showcase_i18n();
+		$plugin_i18n = new Team_Members_Display_i18n();
 
-		$this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
+		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 	}
 
 	/**
@@ -149,18 +148,18 @@ class Team_Members_Showcase {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Team_Members_Showcase_Admin($this->get_plugin_name(), $this->get_version());
+		$plugin_admin = new Team_Members_Display_Admin( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
-		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
-		$this->loader->add_action('init', $plugin_admin, 'register_team_members_cpt');
-		$this->loader->add_filter('manage_team_member_showcase_posts_columns', $plugin_admin, 'team_showcase_columns');
-		$this->loader->add_action('manage_team_member_showcase_posts_custom_column', $plugin_admin, 'team_showcase_manage_columns', 10, 2);
-		$this->loader->add_action('add_meta_boxes', $plugin_admin, 'team_member_addmetaboxes');
-		$this->loader->add_action('save_post', $plugin_admin, 'save_team_showcase_meta_fields');
-		$this->loader->add_action('admin_menu', $plugin_admin, 'team_m_showcase_submenu_page');
-		$this->loader->add_action('wp_ajax_add_new_member', $plugin_admin, 'team_member_add_new_member');
-		$this->loader->add_action('admin_init', $plugin_admin, 'team_member_showcase_settings_fields');
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'init', $plugin_admin, 'register_team_members_cpt' );
+		$this->loader->add_filter( 'manage_team_member_display_posts_columns', $plugin_admin, 'team_display_columns' );
+		$this->loader->add_action( 'manage_team_member_display_posts_custom_column', $plugin_admin, 'team_display_manage_columns', 10, 2 );
+		$this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'team_member_addmetaboxes' );
+		$this->loader->add_action( 'save_post', $plugin_admin, 'save_team_display_meta_fields' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'team_m_display_submenu_page' );
+		$this->loader->add_action( 'wp_ajax_add_new_member', $plugin_admin, 'team_member_add_new_member' );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'team_member_display_settings_fields' );
 	}
 
 	/**
@@ -172,11 +171,11 @@ class Team_Members_Showcase {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Team_Members_Showcase_Public($this->get_plugin_name(), $this->get_version());
+		$plugin_public = new Team_Members_Display_Public( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
-		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
-		$this->loader->add_action('init', $plugin_public, 'register_shortcodes');
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$this->loader->add_action( 'init', $plugin_public, 'register_shortcodes' );
 	}
 
 	/**
@@ -203,7 +202,7 @@ class Team_Members_Showcase {
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    Team_Members_Showcase_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Team_Members_Display_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;
