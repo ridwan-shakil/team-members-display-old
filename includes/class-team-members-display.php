@@ -153,6 +153,7 @@ class Team_Members_Display {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'init', $plugin_admin, 'register_team_members_cpt' );
+		$this->loader->add_filter( 'enter_title_here', $plugin_admin, 'team_change_title_text', 10, 2 );
 		$this->loader->add_filter( 'manage_team_member_display_posts_columns', $plugin_admin, 'team_display_columns' );
 		$this->loader->add_action( 'manage_team_member_display_posts_custom_column', $plugin_admin, 'team_display_manage_columns', 10, 2 );
 		$this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'team_member_addmetaboxes' );
@@ -160,6 +161,9 @@ class Team_Members_Display {
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'team_m_display_submenu_page' );
 		$this->loader->add_action( 'wp_ajax_add_new_member', $plugin_admin, 'team_member_add_new_member' );
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'team_member_display_settings_fields' );
+		$this->loader->add_filter( 'plugin_action_links_'. PLUGIN_BASENAME, $plugin_admin, 'add_settings_link' );
+	
+		
 	}
 
 	/**
@@ -173,7 +177,7 @@ class Team_Members_Display {
 
 		$plugin_public = new Team_Members_Display_Public( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles',90 );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 		$this->loader->add_action( 'init', $plugin_public, 'register_shortcodes' );
 	}

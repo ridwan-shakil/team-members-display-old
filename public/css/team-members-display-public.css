@@ -20,13 +20,15 @@
 	height: 200px;
 }
 
-.tm-s-name {
+h3.tm-s-name {
+	font-weight: bold;
 	margin: 0px;
 	font-size: 22px;
-	padding: 20px 10px 5px;
+	padding: 25px 10px 10px;
 }
 
-.tm-s-position {
+
+p.tm-s-position {
 	margin: 0px;
 	font-size: 18px;
 }
@@ -34,7 +36,7 @@
 .tm-s-description {
 	margin: 0px;
 	font-size: 16px;
-	padding: 10px;
+	padding: 10px 20px;
 }
 
 .social-links {

@@ -7,7 +7,7 @@
  * @wordpress-plugin
  * Plugin Name:       Team members display
  * Plugin URI:        https://#
- * Description:       This plugin adds a Team member CPT that allows you to create teams and add members to those teams. This plugin also adds a settings section where you can customize team members' design.
+ * Description:       This plugin adds a Team member CPT that allows you to create teams and add members to those teams. This plugin also gives a settings page where you can customize team members' design.
  * Version:           1.0.0
  * Author:            MD.Ridwan
  * Author URI:        https://github.com/ridwan-shakil
@@ -35,6 +35,9 @@ if ( ! defined( 'TEAM_PLUGIN_DIR_PATH' ) ) {
 }
 if ( ! defined( 'TEAM_PLUGIN_URL' ) ) {
 	define( 'TEAM_PLUGIN_URL', plugins_url() . '/team-members-display ' );
+}
+if ( ! defined( 'PLUGIN_BASENAME' ) ) {
+	define( 'PLUGIN_BASENAME', plugin_basename(__FILE__) );
 }
 
 /**

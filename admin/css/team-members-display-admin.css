@@ -6,6 +6,7 @@
 .tm-s-toolbar {
 	padding: 20px 0px;
 	position: relative;
+	margin: 0px 10px;
 }
 
 a.tm-s-button {
@@ -15,20 +16,20 @@ a.tm-s-button {
 	border: 1px solid gray;
 	margin: 0px 5px 0px 0px;
 	text-align: center;
-	/* color: white; */
+	background-color: white;
 }
 
-a.tm-s-button.tm-s-show-preview-team {
-	position: absolute;
-	right: 0px;
-	padding: 10px 39px;
-	background: rgb(44 118 177);
+/* change default css  */
+div#add_team_section {
+	background: #f0f0f1;
 	border: none;
-	cursor: pointer;
 }
+.postbox-header {
+	display: none;
+}
+
 
 /* all team members  */
-
 h2.team-members-heading {
 	font-size: 25px !important;
 }
@@ -41,8 +42,11 @@ li.single-team-member {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	padding: 10px;
+	padding: 30px;
 	border-bottom: 1px solid #bcbcbc;
+	background: white;
+	margin: 20px 0px;
+	cursor: move;
 }
 
 /* image section  */
@@ -68,7 +72,7 @@ button.select-image-button {
 
 /* description area  */
 .description-area {
-	width: 35%;
+	width: 40%;
 }
 
 .member-input {
@@ -88,7 +92,7 @@ textarea.rs_label_text {
 
 /* social rows  */
 .socials-area {
-	width: 35%;
+	width: 40%;
 }
 
 .social-row {
@@ -108,10 +112,8 @@ textarea.rs_label_text {
 
 .delete-current-member {
 	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	margin-bottom: 0px;
-	position: relative;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
 span.dashicons.delete_single {
@@ -165,14 +167,14 @@ a.all-delete-btn {
 	text-transform: uppercase;
 }
 
+.tm-display-short-code.controler {
+	background: white;
+	padding: 30px 20px;
+}
 
 .tm-display-short-code.controler input {
 	height: 50px;
 	width: 350px;
-}
-
-.tm-display-short-code.controler {
-	margin: 30px 0px;
 }
 
 .tm-display-short-code.controler span {

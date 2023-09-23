@@ -1,67 +1,70 @@
 <?php
 /**
  * This file does all the security checks and saves the post meta
- * 
- * @since 1.0.0
-*/
-
-/**
- * This function verrify nonce , check user capability and check if the post is autosaving or not . If nonce doesn't verify or usern doesn't have the capability to edit the post or pot is autosaving then return false otherwise return true .
  *
- * @param [nonce] $nonce_field
- * @param [nonce] $nonce_action
- * @param [int] $post_id
- * @return boolean
+ * @link       https://github.com/ridwan-shakil
+ * @since      1.0.0
+ *
+ * @package    Team_Members_Display
+ * @subpackage Team_Members_Display/admin/data-save
  */
-function is_secured( $nonce_field, $nonce_action, $post_id ) {
-	$nonce = isset( $_POST[ $nonce_field ] ) ? $_POST[ $nonce_field ] : '';
-	if ( $nonce === '' ) {
-		return false;
-	}
-	if ( ! wp_verify_nonce( $nonce, $nonce_action ) ) {
-		return false;
-	}
-	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-		return false;
-	}
-	if ( ! current_user_can( 'edit_post', $post_id ) ) {
-		return false;
-	}
-	if ( wp_is_post_revision( $post_id ) ) {
-		return false;
-	}
-	return true;
+
+if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+	return false;
+}
+if ( ! current_user_can( 'edit_post', $post_id ) ) {
+	return false;
+}
+if ( wp_is_post_revision( $post_id ) ) {
+	return false;
 }
 
-/**
- * if not secured, return & don't save the data.
- */
-if ( ! is_secured( 'team_display_nonce', 'save_team_display_nonce', $post_id ) ) {
-	return $post_id;
+/*
+* The code is checking the validity of a nonce (number used once) value that is passed through the POST request.
+*/
+if ( ! isset( $_POST['team_display_nonce'] ) ) {
+	return false;
+} else {
+	$nonce = sanitize_text_field( wp_unslash( $_POST['team_display_nonce'] ) );
+	if ( ! wp_verify_nonce( $nonce, 'save_team_display_nonce' ) ) {
+		return false;
+	}
 }
-
-
 /**
- * if condition is true then saves the data into post meta else deletes it.
+ * If condition is true then saves the data into post meta else deletes it.
  */
 if ( isset( $_POST['mb_name'] ) && isset( $_POST['mb_pos'] ) && isset( $_POST['mb_desc'] ) ) {
-	// Sanitize and save member data
-	$mb_img          = array_map( 'sanitize_text_field', $_POST['mb_img'] );
-	$mb_names        = array_map( 'sanitize_text_field', $_POST['mb_name'] );
-	$mb_positions    = array_map( 'sanitize_text_field', $_POST['mb_pos'] );
-	$mb_descriptions = array_map( 'sanitize_text_field', $_POST['mb_desc'] );
+	// Unslash the incoming data then sanitze the data.
+	$mb_img          = array_map( 'sanitize_text_field', wp_unslash( $_POST['mb_img'] ) );
+	$mb_names        = array_map( 'sanitize_text_field', wp_unslash( $_POST['mb_name'] ) );
+	$mb_positions    = array_map( 'sanitize_text_field', wp_unslash( $_POST['mb_pos'] ) );
+	$mb_descriptions = array_map( 'sanitize_text_field', wp_unslash( $_POST['mb_desc'] ) );
 
-	$first_social_icon = array_map( 'sanitize_text_field', $_POST['first_social_icon'] );
-	$first_social_link = array_map( 'sanitize_text_field', $_POST['first_social_link'] );
+	// Define an array to store the sanitized social icons and links.
+	$social_icons = array();
+	$social_links = array();
 
-	$second_social_icon = array_map( 'sanitize_text_field', $_POST['second_social_icon'] );
-	$second_social_link = array_map( 'sanitize_text_field', $_POST['second_social_link'] );
+	// Define an array of field names.
+	$field_names = array(
+		'first_social_icon',
+		'first_social_link',
+		'second_social_icon',
+		'second_social_link',
+		'third_social_icon',
+		'third_social_link',
+		'fourth_social_icon',
+		'fourth_social_link',
+	);
 
-	$third_social_icon = array_map( 'sanitize_text_field', $_POST['third_social_icon'] );
-	$third_social_link = array_map( 'sanitize_text_field', $_POST['third_social_link'] );
-
-	$fourth_social_icon = array_map( 'sanitize_text_field', $_POST['fourth_social_icon'] );
-	$fourth_social_link = array_map( 'sanitize_text_field', $_POST['fourth_social_link'] );
+	// Loop through the field names and sanitize the values if they exist in $_POST.
+	foreach ( $field_names as $field_name ) {
+		if ( isset( $_POST[ $field_name ] ) ) {
+			${$field_name} = array_map( 'sanitize_text_field', wp_unslash( $_POST[ $field_name ] ) );
+		} else {
+			${$field_name} = array();
+		}
+	}
+	// Now we have all social_icons & social_links  in sanitized format.
 
 	$member_data = array();
 
@@ -86,10 +89,11 @@ if ( isset( $_POST['mb_name'] ) && isset( $_POST['mb_pos'] ) && isset( $_POST['m
 
 	// Save sanitized member data to post meta.
 	update_post_meta( $post_id, 'rs_team_member_display_data', $member_data );
-
-	//Save the number of members in the team.
+	wp_cache_delete( 'cached-tm-'.$post_id, 'team_members_display' );
+	// Save the number of members in the team.
 	$tostal_members = count( $mb_names );
 	update_post_meta( $post_id, 'rs_total_members', $tostal_members );
+	wp_cache_delete( 'cached-total-members-'.$post_id, 'team_members_display' );
 } else {
 	delete_post_meta( $post_id, 'rs_team_member_display_data' );
 }
