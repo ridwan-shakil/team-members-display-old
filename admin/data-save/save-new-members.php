@@ -89,11 +89,11 @@ if ( isset( $_POST['mb_name'] ) && isset( $_POST['mb_pos'] ) && isset( $_POST['m
 
 	// Save sanitized member data to post meta.
 	update_post_meta( $post_id, 'rs_team_member_display_data', $member_data );
-	wp_cache_delete( 'cached-tm-'.$post_id, 'team_members_display' );
+	wp_cache_delete( 'cached-tm-' . $post_id, 'team_members_display' );
 	// Save the number of members in the team.
 	$tostal_members = count( $mb_names );
 	update_post_meta( $post_id, 'rs_total_members', $tostal_members );
-	wp_cache_delete( 'cached-total-members-'.$post_id, 'team_members_display' );
+	wp_cache_delete( 'cached-total-members-' . $post_id, 'team_members_display' );
 } else {
 	delete_post_meta( $post_id, 'rs_team_member_display_data' );
 }

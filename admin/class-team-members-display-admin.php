@@ -71,8 +71,8 @@ class Team_Members_Display_Admin {
 		if ( 'post-new.php' === $screen || 'post.php' === $screen ) {
 			if ( 'team_member_display' === $post->post_type ) {
 				wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/team-members-display-admin.css', array(), $this->version, 'all' );
-				 // Remove all admin notices for this CPT.
-				 remove_all_actions('admin_notices');
+				// Remove all admin notices for this CPT.
+				remove_all_actions( 'admin_notices' );
 			}
 		}
 
@@ -87,7 +87,7 @@ class Team_Members_Display_Admin {
 				wp_add_inline_style( 'tm-public-style', $custom_css );
 			}
 			// Remove all admin notices for this CPT.
-			remove_all_actions('admin_notices');
+			remove_all_actions( 'admin_notices' );
 		}
 	}
 
@@ -176,9 +176,20 @@ class Team_Members_Display_Admin {
 		register_post_type( 'team_member_display', $args );
 	}
 
-	// Change the cpt 'add title' text 
-	function team_change_title_text($title, $post) {
-		if ('team_member_display' === $post->post_type) {
+	/**
+	 * The function changes the title text to "Team Name" for posts of the "team_member_display" post
+	 * type.
+	 *
+	 * @param string $title The title of the post or page being displayed.
+	 * @param object $post The  parameter is an object that represents the current post being displayed. It
+	 * contains information about the post, such as its ID, title, content, author, and more. In this
+	 * function, we are checking if the post type is 'team_member_display' and if it is,
+	 * we are cnanging the title.
+	 *
+	 * @return string the modified title.
+	 */
+	public function team_change_title_text( $title, $post ) {
+		if ( 'team_member_display' === $post->post_type ) {
 			$title = 'Team Name';
 		}
 		return $title;
@@ -221,12 +232,11 @@ class Team_Members_Display_Admin {
 		/**
 		 * If $total_count dowsn't exist in cache then run the query and add it to the cache.
 		 */
-		$total_count = wp_cache_get( 'cached-total-members-'.$post_id, 'team_members_display' );
-		if( false === $total_count ){
+		$total_count = wp_cache_get( 'cached-total-members-' . $post_id, 'team_members_display' );
+		if ( false === $total_count ) {
 			$total_count = get_post_meta( $post_id, 'rs_total_members', true );
-			wp_cache_add( 'cached-total-members-'.$post_id, $total_count, 'team_members_display');
+			wp_cache_add( 'cached-total-members-' . $post_id, $total_count, 'team_members_display' );
 		}
-
 
 		if ( ! $total_count || -1 === $total_count ) {
 			$total_count = 0;
@@ -325,14 +335,17 @@ class Team_Members_Display_Admin {
 		require TEAM_PLUGIN_DIR_PATH . 'admin/partials/admin-settings-fields.php';
 	}
 
-	// Add a link to the plugin's settings page in the "Plugins" list.
-	function add_settings_link($links) {
-		$settings_link = '<a href="' . admin_url('admin.php?page=team-member-display-settings') . '">Settings</a>';
-		array_push($links, $settings_link);
+
+	/**
+	 * The function adds a "Settings" link to an array of links.
+	 *
+	 * @param array $links is an array of existing links.
+	 *
+	 * @return array of links with an additional "Settings" link.
+	 */
+	public function add_settings_link( $links ) {
+		$settings_link = '<a href="' . admin_url( 'admin.php?page=team-member-display-settings' ) . '">Settings</a>';
+		array_push( $links, $settings_link );
 		return $links;
 	}
-
-
-
-	
 }

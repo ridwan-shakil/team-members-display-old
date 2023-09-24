@@ -189,7 +189,7 @@ function columns_field_callback() {
 }
 
 function tms_member_box_shadow_field_callback() {
-	$tms_member_box_shadow = get_option( 'tms_member_box_shadow' );
+	$tms_member_box_shadow = get_option( 'tms_member_box_shadow', 1 );
 	$checked               = checked( 1, $tms_member_box_shadow, false );
 	echo "<input type='checkbox' name='tms_member_box_shadow' id='tms_member_box_shadow' value='1' " . esc_attr( $checked ) . ' />';
 }

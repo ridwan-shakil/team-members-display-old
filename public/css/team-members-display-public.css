@@ -13,6 +13,7 @@
 	margin: 10px;
 	width: 30%;
 	text-align: center;
+	border: 1px solid gainsboro;
 }
 
 .tm-s-image {
@@ -60,5 +61,22 @@ a.tm-s-social i {
 	margin-right: 5px;
 	margin-bottom: 8px;
 	border-radius: 50%;
-	border: 1px solid #000;
+	border: 1px solid #cfcfcf;
+}
+
+/* hover animation  */
+.rs-single-team-member {
+	transition: transform 0.2s ease-in-out;
+}
+
+.rs-single-team-member:hover {
+	transform: scale(1.05); /* Enlarge on hover */
+}
+
+.rs-single-team-member .tm-s-social i {
+	transition: color 0.2s ease-in-out;
+}
+
+.rs-single-team-member .tm-s-social i:hover {
+	transform: scale(1.10);
 }

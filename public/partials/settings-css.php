@@ -9,7 +9,7 @@
  * @subpackage Team_Members_Display/public/partials
  */
 
-$input     = esc_attr( get_option( 'tms_social_profile_icon_size' ) );
+$input     = esc_attr( get_option( 'tms_social_profile_icon_size', 20 ) );
 $input     = intval( $input );
 $icon_size = 16 + $input;
 ?>

@@ -17,7 +17,7 @@
 .settings-display-column {
 	width: 50%;
 	padding: 40px;
-	background: #dcdcde;
+	background: #ffffff;
 }
 
 a.nav-tab {
@@ -83,11 +83,11 @@ textarea#custom_css_area {
 
 /* notice  */
 .tms_notice {
-	margin: 40px;
+	margin: 40px 0px;
 	padding: 10px 10px 10px 20px;
 	border-left: 9px solid green;
 	background: #697b6978;
-	width: 82%;
+	width: 90%;
 }
 
 .tms_notice p {

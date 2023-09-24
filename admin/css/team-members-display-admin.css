@@ -112,8 +112,8 @@ textarea.rs_label_text {
 
 .delete-current-member {
 	display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+	flex-direction: row;
+	justify-content: flex-end;
 }
 
 span.dashicons.delete_single {

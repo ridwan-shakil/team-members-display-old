@@ -86,36 +86,6 @@ class Team_Members_Display_Public {
 		}
 	}
 
-
-	/**
-	 * Register the JavaScript for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Team_Members_Display_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Team_Members_Display_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		// Check if the post content contains your shortcode.
-		global $post;
-		if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'TEAM_MEMBERS' ) ) {
-			wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/team-members-display-public.js', array( 'jquery' ), $this->version, false );
-
-			// jquery.
-			wp_enqueue_script( 'jquery' );
-		}
-	}
-
 	/**
 	 * Register shortcodes for the public-facing side of the website.
 	 *

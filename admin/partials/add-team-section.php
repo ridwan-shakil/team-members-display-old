@@ -36,12 +36,12 @@ $social_icons = array(
 
 
 
-$team_members = wp_cache_get( 'cached-tm-'.$post->ID, 'team_members_display' );
+$team_members = wp_cache_get( 'cached-tm-' . $post->ID, 'team_members_display' );
 
 if ( false === $team_members ) {
 
 	$team_members = get_post_meta( $post->ID, 'rs_team_member_display_data', true );
-	wp_cache_set( 'cached-tm-'.$post->ID, $team_members, 'team_members_display');
+	wp_cache_set( 'cached-tm-' . $post->ID, $team_members, 'team_members_display' );
 }
 
 
